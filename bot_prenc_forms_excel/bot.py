@@ -1,26 +1,3 @@
-"""
-WARNING:
-
-Please make sure you install the bot dependencies with `pip install --upgrade -r requirements.txt`
-in order to get all the dependencies on your Python environment.
-
-Also, if you are using PyCharm or another IDE, make sure that you use the SAME Python interpreter
-as your IDE.
-
-If you get an error like:
-```
-ModuleNotFoundError: No module named 'botcity'
-```
-
-This means that you are likely using a different Python interpreter than the one used to install the dependencies.
-To fix this, you can either:
-- Use the same interpreter as your IDE and install your bot with `pip install --upgrade -r requirements.txt`
-- Use the same interpreter as the one used to install the bot (`pip install --upgrade -r requirements.txt`)
-
-Please refer to the documentation for more information at
-https://documentation.botcity.dev/tutorials/python-automations/desktop/
-"""
-
 # Import for the Desktop Bot
 from botcity.core import DesktopBot
 
@@ -44,6 +21,48 @@ def main():
     bot.browse("https://docs.google.com/forms/d/e/1FAIpQLSfDzqYUoNJMY09vo4o9NNmwWWzgoNHMX3on6wctH2z3rQkB1A/viewform")
 
     # Implement here your logic...
+    if not bot.find("nome", matching=0.97, waiting_time=10000):
+        not_found("nome")
+    bot.click_relative(30, 96)
+    bot.paste("Rodrigo Lima de Souza")
+
+    if not bot.find("genero", matching=0.97, waiting_time=10000):
+        not_found("genero")
+    bot.click_relative(18, 86)
+    bot.paste("Rodrigo Lima de Souza")
+
+    if not bot.find("email", matching=0.97, waiting_time=10000):
+        not_found("email")
+    bot.click_relative(21, 99)
+    bot.paste("Rodrigo@Souza.com")
+    
+    if not bot.find("departamento", matching=0.97, waiting_time=10000):
+        not_found("departamento")
+    bot.click()
+    bot.paste("engenharia")
+
+    if not bot.find("endereco", matching=0.97, waiting_time=10000):
+        not_found("endereco")
+    bot.click_relative(38, 98)
+    bot.paste("cidade nova")
+
+    if not bot.find("cpf", matching=0.97, waiting_time=10000):
+        not_found("cpf")
+    bot.click_relative(34, 95)
+    bot.paste("000.000.000-66")
+
+    if not bot.find("rg", matching=0.97, waiting_time=10000):
+        not_found("rg")
+    bot.click_relative(31, 95)
+    bot.paste("55555555")
+
+    if not bot.find("turno", matching=0.97, waiting_time=10000):
+        not_found("turno")
+    bot.click_relative(16, 85)
+
+    # if not bot.find("enviar", matching=0.97, waiting_time=10000):
+    #     not_found("enviar")
+    # bot.click()
     
 
     # Uncomment to mark this task as finished on BotMaestro
