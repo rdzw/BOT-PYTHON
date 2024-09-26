@@ -1,0 +1,122 @@
+// ---------------------------------------------
+// Testar todos os servico da api para usuario
+// ---------------------------------------------
+
+// Inserir usuario
+POST http://127.0.0.1:5000/usuario
+Content-Type: application/json
+// OBS: É necessário pular uma linha, quando existir um corpo (body) 
+
+{
+    "nome": "jojo",
+    "login": "ket",
+    "senha": "444",
+    "email": "joma@gmail.com"
+}
+// Utiliza-se obrigatoriamente no início da linha os simbolos: ###
+// para separar uma requisção da outra. 
+###
+{
+  "id:": 7,
+  
+}
+// Alterar usuario
+PUT http://127.0.0.1:5000/usuario
+Content-Type: application/json
+// OBS: É necessário pular uma linha, quando existir um corpo (body) 
+
+{
+    "id": 7,
+    "nome": "rodrigo souza",
+    "login": "souza",
+    "senha": "5555",
+    "email": "rmsria@gmail.com"
+}
+// Utiliza-se obrigatoriamente no início da linha os simbolos: ###
+// para separar uma requisção da outra. 
+###
+
+// Listar todos os usuários em ordem alfabética do nome
+GET http://127.0.0.1:5000/usuario 
+Content-Type: application/json
+###
+
+// Obter usuário pelo ID
+//GET http://127.0.0.1:5000/usuario/id
+GET http://127.0.0.1:5000/usuario/6
+Content-Type: application/json
+###
+
+// Deletar usuário pelo ID
+// http://127.0.0.1:5000/usuario/id
+DELETE http://127.0.0.1:5000/usuario/1
+Content-Type: application/json
+###
+
+// Alterar o preço em dolar do produto pelo id
+PUT http://127.0.0.1:5000/produto/atualizar_preco_dolar
+Content-Type: application/json
+// OBS: É necessário pular uma linha, quando existir um corpo (body) 
+
+{
+  "id": 1,
+  "preco_dolar": 200.0
+}
+// Utiliza-se obrigatoriamente no início da linha os simbolos: ###
+// para separar uma requisção da outra. 
+###
+
+// ---------------------------------------------
+// Testar todos os servico da api para produtos
+// ---------------------------------------------
+
+// Incluir produto
+POST http://127.0.0.1:5000/produto
+Content-Type: application/json
+// OBS: É necessário pular uma linha, quando existir um corpo (body) 
+
+{
+  "descricao" : "Tapioca",
+  "unidade"   : "Unid",
+  "quantidade" : 5,
+  "preco_real" : 4.70,
+  "preco_dolar": 0.0
+}
+// Utiliza-se obrigatoriamente no início da linha os simbolos: ###
+// para separar uma requisção da outra. 
+###
+
+// Alterar produto pelo id
+PUT http://127.0.0.1:5000/produto
+Content-Type: application/json
+// OBS: É necessário pular uma linha, quando existir um corpo (body) 
+
+{
+  "id": 2,
+  "descricao" : "Carne",
+  "unidade" : "Kg",
+  "quantidade" : 1,
+  "preco_real" : 30.50,
+  "preco_dolar": 150.0
+}
+// Utiliza-se obrigatoriamente no início da linha os simbolos: ###
+// para separar uma requisção da outra. 
+###
+
+###
+// Listar todos os produtos em ordem alfabética pela descricao
+GET http://127.0.0.1:5000/produto
+Content-Type: application/json
+###
+
+// Obter produto pelo ID
+// http://127.0.0.1:5000/produto/id
+GET http://127.0.0.1:5000/produto/4
+Content-Type: application/json
+###
+
+// Deletar produto pelo ID
+// http://127.0.0.1:5000/produto/id
+DELETE http://127.0.0.1:5000/produto/2
+Content-Type: application/json
+###
