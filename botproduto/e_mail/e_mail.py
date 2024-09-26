@@ -8,7 +8,7 @@ def enviar_email(destinatario, assunto, conteudo):
    email.configure_imap("imap.gmail.com", 993)
    email.configure_smtp(host_address="smtp.gmail.com",port=587)
    # Login com a conta do emissor
-   email.login(email="botcityifam@gmail.com",password="licp pjdk zdet japu")
+   email.login(email="rodrigo.souza@ifam.edu.br",password="016.105.422-66")
 
    # Definir os atributos da mensagem
    to = [destinatario]

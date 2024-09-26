@@ -28,6 +28,10 @@ from webdriver_manager.chrome import ChromeDriverManager
 from botcity.plugins.http import BotHttpPlugin
 from datetime import datetime
 
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+
 import planilha.planilha as planilha
 import e_mail.e_mail as e_mail
 import pdf.pdf as pdf
@@ -47,8 +51,8 @@ def acessar_site(bot):
     bot.wait(1000)
     bot.enter()
     # Imprimir página do site para arquivo PDF
-    bot.print_pdf('C:\\LG\\Desafio\\botproduto\\pdf\\SiteProduto.pdf')
-
+    bot.print_pdf(r'C:\Users\noturno\Desktop\BOT-PYTHON\botproduto\pdf\SiteProduto.pdf')
+    
 def api_obter_valor_dolar():
     http=BotHttpPlugin('https://economia.awesomeapi.com.br/last/USD-BRL')
     return http.get_as_json()
@@ -134,7 +138,8 @@ def main():
     retornoJSON = api_obter_valor_dolar()
     valor_dolar=retornoJSON['USDBRL']['high']
     print('Leitura do arquivo Excel...')
-    arq_excel = 'C:\\LG\\Desafio\\botproduto\\planilha\\RelacaoProduto.xlsx'
+    arq_excel = r'C:\Users\noturno\Desktop\BOT-PYTHON\botproduto\planilha\RelacaoProduto.xlsx'
+    
     sheet = 'produto'  
     df = planilha.ler_excel(arq_excel,sheet)
     planilha.exibir_dados_excel(df)
@@ -149,12 +154,17 @@ def main():
     
     print('Gerando arquivo Produtos.pdf com o merge entre os arquivos: ListaProduto.pdf + SiteProduto.pdf...')
     lista_pdf = []
-    lista_pdf.append('C:\\LG\\Desafio\\botproduto\\pdf\\ListaProduto.pdf')
-    lista_pdf.append('C:\\LG\\Desafio\\botproduto\\pdf\\SiteProduto.pdf')
-    pdf.merge_pdfs(lista_pdf,'C:\\LG\\Desafio\\botproduto\\pdf\\Produtos.pdf')
-    
+    lista_pdf.append(r'C:\Users\noturno\Desktop\BOT-PYTHON\botproduto\pdf\ListaProduto.pdf')
+    #r'C:\Users\noturno\Desktop\BOT-PYTHON\botproduto\pdf\ListaProduto.pdf'
+
+    lista_pdf.append(r'C:\Users\noturno\Desktop\BOT-PYTHON\botproduto\pdf\SiteProduto.pdf')
+    #r'C:\Users\noturno\Desktop\BOT-PYTHON\botproduto\pdf\SiteProduto.pdf'
+
+    pdf.merge_pdfs(lista_pdf,r'C:\Users\noturno\Desktop\BOT-PYTHON\botproduto\pdf\Produtos.pdf')
+    #r'C:\Users\noturno\Desktop\BOT-PYTHON\botproduto\pdf\Produtos.pdf'
+
     print('Enviando E-mail para a lista de usuario com arquivo Produtos.pdf em anexo.')
-    arq_anexo = 'C:\\LG\\Desafio\\botproduto\\pdf\\Produtos.pdf'
+    arq_anexo = r'C:\Users\noturno\Desktop\BOT-PYTHON\botproduto\pdf\Produtos.pdf'
     retornoJSON_usuarios = api_lista_usuarios()
     lista_produto = retornoJSON_usuarios['dados']
     for usuario in lista_produto:

@@ -20,8 +20,11 @@ def merge_pdfs(pdf_lista, arq_saida):
     merger.close()
   
 def criar_pdf_lista_produto(produtos):
-    arq_logo = 'C:\\LG\\Desafio\\botproduto\\pdf\\banner.png'
-    arq_destino = 'C:\\LG\\Desafio\\botproduto\\pdf\\ListaProduto.pdf'
+    arq_logo = r'C:\Users\noturno\Desktop\BOT-PYTHON\botproduto\pdf\banner.png'
+    #C:\Users\noturno\Desktop\BOT-PYTHON\botproduto\pdf\banner.png
+
+    arq_destino = r'C:\Users\noturno\Desktop\BOT-PYTHON\botproduto\pdf\ListaProduto.pdf'
+    #C:\Users\noturno\Desktop\BOT-PYTHON\botproduto\pdf\ListaProduto.pdf
     
     # Cria o documento PDF
     pdf = SimpleDocTemplate(arq_destino, pagesize=A4)
