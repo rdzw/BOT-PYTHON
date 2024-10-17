@@ -6,6 +6,10 @@ from botcity.maestro import *
 BotMaestroSDK.RAISE_NOT_CONNECTED = False
 from webdriver_manager.chrome import ChromeDriverManager
 
+'''
+Exemplo de implementação com o conceito de HERANÇA
+um dos pilares do POO
+'''
 class Bot(WebBot):
 
     def configura_bot(self):
@@ -31,7 +35,7 @@ class Bot(WebBot):
         # Abrir o site definido
         self.url_site()
 
-    def url_site(self, url="https://www.botcity.dev"):
+    def url_site(self, url="http://127.0.0.1:5500/form.html"):
         try:
             # Open the provided URL
             self.browse(url)
